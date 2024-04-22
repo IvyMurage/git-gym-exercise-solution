@@ -1128,3 +1128,53 @@ Switched to a new branch 'ft/footer'
 
 * Create a PR for the changes.
   ![plot](/images/Screenshot%20from%202024-04-22%2019-17-03.png)
+
+## Bundle 6
+
+### Exercises 1
+
+- On the git-cafe-exercise repo create a new feature branch
+
+  ```
+  😹 🍒 :git-cafe-exercise ivy$ git switch -c ft-menu-branch
+  Switched to a new branch 'ft-menu-branch'
+  ```
+
+- Add new changes related to a new page named Menu
+
+  ```
+  😹 🍒 :git-cafe-exercise ivy$ git add .
+  😹 🍒 :git-cafe-exercise ivy$ git commit -m 'create menu page'
+  [ft-menu-branch 9831f68] create menu page
+  1 file changed, 15 insertions(+)
+  create mode 100644 menu.html
+  😹 🍒 :git-cafe-exercise ivy$ git push
+  fatal: The current branch ft-menu-branch has no upstream branch.
+  To push the current branch and set the remote as upstream, use
+
+      git push --set-upstream origin ft-menu-branch
+
+  😹 🍒 :git-cafe-exercise ivy$     git push --set-upstream origin ft-menu-branch
+  Enumerating objects: 4, done.
+  Counting objects: 100% (4/4), done.
+  Delta compression using up to 8 threads
+  Compressing objects: 100% (3/3), done.
+  Writing objects: 100% (3/3), 466 bytes | 466.00 KiB/s, done.
+  Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+  remote:
+  remote: Create a pull request for 'ft-menu-branch' on GitHub by visiting:
+  remote:      https://github.com/IvyMurage/git-cafe-exercise/pull/new/ft-menu-branch
+  remote:
+  To github.com:IvyMurage/git-cafe-exercise.git
+  * [new branch]      ft-menu-branch -> ft-menu-branch
+  Branch 'ft-menu-branch' set up to track remote branch 'ft-menu-branch' from 'origin'.
+
+  ```
+
+### Exercise 3
+
+- On the `git-cafe-exercise` repo, there is a small hotfix on the contact page
+- Change the telephone on the `index-4.html` page from `+1 800 603 6035` to `+1 800 659 6035`
+
+  ![alt text](image.png)
