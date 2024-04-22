@@ -298,3 +298,179 @@
     * Request a review and make sure your Pull request gets merged (Look for someone to merge your PR)
 
     ![plot](/images/Screenshot%20from%202024-04-22%2013-32-45.png)
+
+### Exercise 2
+* Question 1:
+    * Checkout your main branch and pull the latest changes
+    ```
+    😹 🍒 :git-exercises ivy$ git branch
+  dev
+    * ft/bundle-2
+    main
+    😹 🍒 :git-exercises ivy$ git switch main
+    Switched to branch 'main'
+    Your branch is up to date with 'origin/main'.
+    😹 🍒 :git-exercises ivy$ git pull
+    remote: Enumerating objects: 1, done.
+    remote: Counting objects: 100% (1/1), done.
+    remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+    Unpacking objects: 100% (1/1), 896 bytes | 896.00 KiB/s, done.
+    From github.com:IvyMurage/git-exercises
+    cf80077..3c8cc40  main       -> origin/main
+    Updating cf80077..3c8cc40
+    Fast-forward
+    about.html    | 11 +++++++++++
+    home.html     | 14 ++++++++++++++
+    services.html | 14 ++++++++++++++
+    3 files changed, 39 insertions(+)
+    create mode 100644 about.html
+    create mode 100644 home.html
+    create mode 100644 services.html
+    ```
+    * Create a new branch named ft/service-redesign
+    ```
+    😹 🍒 :git-exercises ivy$ git switch -c ft/service-redesign
+    Switched to a new branch 'ft/service-redesign'
+    ```
+    * Add new changes to the service.html page
+    ```
+    😹 🍒 :git-exercises ivy$ git status
+    On branch ft/service-redesign
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+        modified:   services.html
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+    ```
+    
+    * commit and push them
+    ```
+    😹 🍒 :git-exercises ivy$ git add .
+    😹 🍒 :git-exercises ivy$ git status
+    On branch ft/service-redesign
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+        modified:   services.html
+
+    😹 🍒 :git-exercises ivy$ git commit -m 'Create a header for service page'
+    [ft/service-redesign a392372] Create a header for service page
+    1 file changed, 2 insertions(+)
+    😹 🍒 :git-exercises ivy$ git push 
+    fatal: The current branch ft/service-redesign has no upstream branch.
+    To push the current branch and set the remote as upstream, use
+
+        git push --set-upstream origin ft/service-redesign
+
+    😹 🍒 :git-exercises ivy$ git push --set-upstream origin ft/service-redesign
+    Enumerating objects: 5, done.
+    Counting objects: 100% (5/5), done.
+    Delta compression using up to 8 threads
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 336 bytes | 336.00 KiB/s, done.
+    Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+    remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+    remote: 
+    remote: Create a pull request for 'ft/service-redesign' on GitHub by visiting:
+    remote:      https://github.com/IvyMurage/git-exercises/pull/new/ft/service-redesign
+    remote: 
+    To github.com:IvyMurage/git-exercises.git
+    * [new branch]      ft/service-redesign -> ft/service-redesign
+    Branch 'ft/service-redesign' set up to track remote branch 'ft/service-redesign' from 'origin'.
+    ```
+
+    * create a new PR for your changes
+
+
+    * go back to your main branch and add again new changes to your service.html page, you can add different changes but make sure to affect the same part(line of code) as you did in the other PR
+
+    ```
+    😹 🍒 :git-exercises ivy$ git switch main
+    Switched to branch 'main'
+    Your branch is up to date with 'origin/main'.
+    😹 🍒 :git-exercises ivy$ git status
+    On branch main
+    Your branch is up to date with 'origin/main'.
+
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+        modified:   services.html
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+    😹 🍒 :git-exercises ivy$ git branch
+    dev
+    ft/bundle-2
+    ft/service-redesign
+    * main
+    ```
+
+    * Commit and push those changes
+    ```
+    😹 🍒 :git-exercises ivy$ git add .
+    😹 🍒 :git-exercises ivy$ git commit -m 'Update service page'
+    [main 0a164e5] Update service page
+    1 file changed, 7 insertions(+)
+    😹 🍒 :git-exercises ivy$ git push
+    Enumerating objects: 5, done.
+    Counting objects: 100% (5/5), done.
+    Delta compression using up to 8 threads
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 496 bytes | 496.00 KiB/s, done.
+    Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+    remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+    To github.com:IvyMurage/git-exercises.git
+    3c8cc40..0a164e5  main -> main
+    ```
+    * n your project checkout the ft/service-redesignbranch
+    ```
+    😹 🍒 :git-exercises ivy$ git merge ft/service-redesign 
+    Auto-merging services.html
+    CONFLICT (content): Merge conflict in services.html
+    Automatic merge failed; fix conflicts and then commit the result.
+    ```
+    * Compare the ft/service-redesignwith the main branch using git diff and observe the changes
+
+    ```
+    😹 🍒 :git-exercises ivy$ git diff
+    diff --cc services.html
+    index 85366c6,274003a..0000000
+    --- a/services.html
+    +++ b/services.html
+    @@@ -8,7 -8,7 +8,11 @@@
+    </head>
+    
+    <body>
+    ++<<<<<<< HEAD
+    +    <h1>Services Page for our company 12345</h1>
+    ++=======
+    +     <h1>Services Page for our company</h1>
+    ++>>>>>>> ft/service-redesign
+        <p>This is the service page</p>
+    </body>
+    ```
+
+    * Using git merge, merge the main branch with ft/service-redesign branch and commit and push you changes again
+    ```
+    😹 🍒 :git-exercises ivy$ git status
+    On branch main
+    Your branch is up to date with 'origin/main'.
+
+    All conflicts fixed but you are still merging.
+    (use "git commit" to conclude merge)
+
+    Changes to be committed:
+        modified:   services.html
+
+    😹 🍒 :git-exercises ivy$ git diff
+    😹 🍒 :git-exercises ivy$ git add .
+    😹 🍒 :git-exercises ivy$ git commit -m 'resolve conflict'
+    [main e107ad6] resolve conflict
+    😹 🍒 :git-exercises ivy$ git push
+    Enumerating objects: 1, done.
+    Counting objects: 100% (1/1), done.
+    Writing objects: 100% (1/1), 223 bytes | 223.00 KiB/s, done.
+    Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+    To github.com:IvyMurage/git-exercises.git
+    270df24..e107ad6  main -> main
+   ```
