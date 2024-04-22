@@ -244,3 +244,57 @@
     On branch dev
     nothing to commit, working tree clean
     ```
+
+
+## Bundle 2
+### Exercise 1
+* Question 1:
+    * Create a new branch named ft/bundle-2:
+    ```
+    😹 🍒 :git-exercises ivy$ git switch -c ft/bundle-2
+    Switched to a new branch 'ft/bundle-2'
+    😹 🍒 :git-exercises ivy$ git branch
+    dev
+    * ft/bundle-2
+    main
+    ```
+    * Add new changes to your project. create a new page named services.html and add some changes 
+    ```
+    😹 🍒 :git-exercises ivy$ touch services.html
+    😹 🍒 :git-exercises ivy$ code .
+    😹 🍒 :git-exercises ivy$ git status
+    On branch ft/bundle-2
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+        services.html
+
+    nothing added to commit but untracked files present (use "git add" to track)
+    ```
+    * Commit your changes and create a Pull Request against the main branch in your github repository
+    ```
+    😹 🍒 :git-exercises ivy$ git add .
+    😹 🍒 :git-exercises ivy$ git commit -m 'Set the service page'
+    [ft/bundle-2 b9401b4] Set the service page
+    1 file changed, 14 insertions(+)
+    create mode 100644 services.html
+
+    😹 🍒 :git-exercises ivy$     git push --set-upstream origin ft/bundle-2
+    Enumerating objects: 8, done.
+    Counting objects: 100% (8/8), done.
+    Delta compression using up to 8 threads
+    Compressing objects: 100% (7/7), done.
+    Writing objects: 100% (7/7), 833 bytes | 416.00 KiB/s, done.
+    Total 7 (delta 3), reused 0 (delta 0), pack-reused 0
+    remote: Resolving deltas: 100% (3/3), done.
+    remote: 
+    remote: Create a pull request for 'ft/bundle-2' on GitHub by visiting:
+    remote:      https://github.com/IvyMurage/git-exercises/pull/new/ft/bundle-2
+    remote: 
+    To github.com:IvyMurage/git-exercises.git
+    * [new branch]      ft/bundle-2 -> ft/bundle-2
+    Branch 'ft/bundle-2' set up to track remote branch 'ft/bundle-2' from 'origin'.
+    ```
+
+    * Request a review and make sure your Pull request gets merged (Look for someone to merge your PR)
+
+    ![plot](/images/Screenshot%20from%202024-04-22%2013-32-45.png)
