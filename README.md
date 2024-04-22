@@ -1084,3 +1084,47 @@ Switched to a new branch 'ft/footer'
   * [new branch]      ft/squashing -> ft/squashing
   Branch 'ft/squashing' set up to track remote branch 'ft/squashing' from 'origin'.
   ```
+
+## Bundle 5
+
+### Exercises 1
+
+- Clone your fork on your machine
+
+  ```
+      😹 🍒 :ojemba ivy$ git clone git@github.com:IvyMurage/git-cafe-exercise.git
+      Cloning into 'git-cafe-exercise'...
+      remote: Enumerating objects: 107, done.
+      remote: Counting objects: 100% (14/14), done.
+      remote: Compressing objects: 100% (10/10), done.
+      remote: Total 107 (delta 5), reused 4 (delta 4), pack-reused 93
+      Receiving objects: 100% (107/107), 1.95 MiB | 768.00 KiB/s, done.
+      Resolving deltas: 100% (5/5), done.
+  ```
+
+* - Edit the `index.html` file
+  - Change the text `Welcome to our place` to `Welcome to our restaurant`
+  - Commit and push the changes
+
+  ```
+  😹 🍒 :ojemba ivy$ cd git-cafe-exercise/
+  😹 🍒 :git-cafe-exercise ivy$ code .
+  😹 🍒 :git-cafe-exercise ivy$ git add .
+  😹 🍒 :git-cafe-exercise ivy$ git commit -m 'Change header'
+  [main ecf6127] Change header
+  1 file changed, 345 insertions(+), 288 deletions(-)
+  rewrite index.html (85%)
+  😹 🍒 :git-cafe-exercise ivy$ git push
+  Enumerating objects: 5, done.
+  Counting objects: 100% (5/5), done.
+  Delta compression using up to 8 threads
+  Compressing objects: 100% (3/3), done.
+  Writing objects: 100% (3/3), 1.38 KiB | 472.00 KiB/s, done.
+  Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+  To github.com:IvyMurage/git-cafe-exercise.git
+  d1d3f9c..ecf6127  main -> main
+  ```
+
+* Create a PR for the changes.
+  ![plot](/images/Screenshot%20from%202024-04-22%2019-17-03.png)
