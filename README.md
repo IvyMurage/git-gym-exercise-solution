@@ -757,3 +757,110 @@
     To github.com:IvyMurage/git-exercises.git
     c3f1e15..716f478  ft/faq-page -> ft/faq-page
   ```
+
+### Exercise 2
+
+- Question 1:
+
+  - Create new branch from the ft/faq-page branch named ft/home-page-redesign
+
+  ```
+  😹 🍒 :git-exercises ivy$ git switch -c ft/home-page-redesign
+  Switched to a new branch 'ft/home-page-redesign'
+  ```
+
+  - Go back to the main branch and make some changes there
+
+  ```
+    😹 🍒 :git-exercises ivy$ git switch main
+    Switched to branch 'main'
+    Your branch is up to date with 'origin/main'.
+
+    😹 🍒 :git-exercises ivy$ git status
+    On branch main
+    Your branch is up to date with 'origin/main'.
+
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+        modified:   home.html
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+  ```
+
+  - Commit and push them
+
+    ```
+    😹 🍒 :git-exercises ivy$ git add .
+        😹 🍒 :git-exercises ivy$ git commit -m 'Update home page'
+        [main aad9dc9] Update home page
+        1 file changed, 1 insertion(+), 1 deletion(-)
+        😹 🍒 :git-exercises ivy$ git push
+        Enumerating objects: 5, done.
+        Counting objects: 100% (5/5), done.
+        Delta compression using up to 8 threads
+        Compressing objects: 100% (3/3), done.
+        Writing objects: 100% (3/3), 318 bytes | 318.00 KiB/s, done.
+        Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+        remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+        To github.com:IvyMurage/git-exercises.git
+        e107ad6..aad9dc9  main -> main
+    ```
+
+- go back to the ft/home-page-redesign branch
+
+  ```
+  😹 🍒 :git-exercises ivy$ git switch ft/home-page-redesign
+  Switched to branch 'ft/home-page-redesign'
+  😹 🍒 :git-exercises ivy$ git branch
+  dev
+  ft/bundle-2
+  ft/contact-page
+  ft/faq-page
+  * ft/home-page-redesign
+  ft/service-redesign
+  ft/team-page
+  main
+  ```
+
+* Using git rebase, rebase your branch to main
+
+  ```
+  😹 🍒 :git-exercises ivy$ git rebase main
+  Successfully rebased and updated refs/heads/ft/home-page-redesign.
+  ```
+
+* Add changes to the home page and commit push them
+
+  ```
+  😹 🍒 :git-exercises ivy$ git status
+  On branch ft/home-page-redesign
+  Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+      modified:   home.html
+
+  no changes added to commit (use "git add" and/or "git commit -a")
+  😹 🍒 :git-exercises ivy$ git add .
+  😹 🍒 :git-exercises ivy$ git commit -m 'Update home page'
+  [ft/home-page-redesign 446d165] Update home page
+  1 file changed, 1 insertion(+)
+  😹 🍒 :git-exercises ivy$ git push --set-upstream origin ft/home-page-redesign
+  Enumerating objects: 16, done.
+  Counting objects: 100% (16/16), done.
+  Delta compression using up to 8 threads
+  Compressing objects: 100% (14/14), done.
+  Writing objects: 100% (14/14), 1.54 KiB | 786.00 KiB/s, done.
+  Total 14 (delta 7), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (7/7), completed with 1 local object.
+  remote:
+  remote: Create a pull request for 'ft/home-page-redesign' on GitHub by visiting:
+  remote:      https://github.com/IvyMurage/git-exercises/pull/new/ft/home-page-redesign
+  remote:
+  To github.com:IvyMurage/git-exercises.git
+  * [new branch]      ft/home-page-redesign -> ft/home-page-redesign
+  Branch 'ft/home-page-redesign' set up to track remote branch 'ft/home-page-redesign' from 'origin'.
+  ```
+
+  - Create a PR for the changes.
+    ![plot](/images/Screenshot%20from%202024-04-22%2016-44-58.png)
