@@ -862,5 +862,91 @@
   Branch 'ft/home-page-redesign' set up to track remote branch 'ft/home-page-redesign' from 'origin'.
   ```
 
-  - Create a PR for the changes.
-    ![plot](/images/Screenshot%20from%202024-04-22%2016-44-58.png)
+* Create a PR for the changes.
+  ![plot](/images/Screenshot%20from%202024-04-22%2016-44-58.png)
+
+* Checkout the main branch
+
+  ```
+  😹 🍒 :git-exercises ivy$ git switch main
+  Switched to branch 'main'
+  Your branch is up to date with 'origin/main'.
+  ```
+
+* - Create a new repository on github
+  - Using git remote add the repo to your project as second remote named `git-copy`
+
+  ```
+  😹 🍒 :git-exercises ivy$ git remote add git-copy git@github.com:IvyMurage/git-exercise-copy.git
+  😹 🍒 :git-exercises ivy$ git remote -v
+  git-copy	git@github.com:IvyMurage/git-exercise-copy.git (fetch)
+  git-copy	git@github.com:IvyMurage/git-exercise-copy.git (push)
+  origin	git@github.com:IvyMurage/git-exercises.git (fetch)
+  origin	git@github.com:IvyMurage/git-exercises.git (push)
+  ```
+
+* Make a new changes on the home page
+
+  ```
+  😹 🍒 :git-exercises ivy$ git status
+  On branch main
+  Your branch is up to date with 'origin/main'.
+
+  Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+      modified:   home.html
+
+  no changes added to commit (use "git add" and/or "git commit -a")
+  ```
+
+* Commit the changes
+
+  ```
+  😹 🍒 :git-exercises ivy$ git add .
+  😹 🍒 :git-exercises ivy$ git commit -m 'Update home page'
+  [main 51b1756] Update home page
+  1 file changed, 1 insertion(+)
+  😹 🍒 :git-exercises ivy$ git push -u origin main
+  Enumerating objects: 5, done.
+  Counting objects: 100% (5/5), done.
+  Delta compression using up to 8 threads
+  Compressing objects: 100% (3/3), done.
+  Writing objects: 100% (3/3), 322 bytes | 322.00 KiB/s, done.
+  Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+  To github.com:IvyMurage/git-exercises.git
+  aad9dc9..51b1756  main -> main
+  Branch 'main' set up to track remote branch 'main' from 'origin'.
+  ```
+
+* Push the changes to the both remotes. the origin and git-copy
+
+  ```
+      😹 🍒 :git-exercises ivy$ git push -u origin main
+      Enumerating objects: 5, done.
+      Counting objects: 100% (5/5), done.
+      Delta compression using up to 8 threads
+      Compressing objects: 100% (3/3), done.
+      Writing objects: 100% (3/3), 322 bytes | 322.00 KiB/s, done.
+      Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+      remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+      To github.com:IvyMurage/git-exercises.git
+      aad9dc9..51b1756  main -> main
+      Branch 'main' set up to track remote branch 'main' from 'origin'.
+      😹 🍒 :git-exercises ivy$ git push -u git-copy main
+      Enumerating objects: 37, done.
+      Counting objects: 100% (37/37), done.
+      Delta compression using up to 8 threads
+      Compressing objects: 100% (35/35), done.
+      Writing objects: 100% (37/37), 4.10 KiB | 420.00 KiB/s, done.
+      Total 37 (delta 21), reused 0 (delta 0), pack-reused 0
+      remote: Resolving deltas: 100% (21/21), done.
+      To github.com:IvyMurage/git-exercise-copy.git
+      * [new branch]      main -> main
+      Branch 'main' set up to track remote branch 'main' from 'git-copy'.
+  ```
+
+```
+
+```
