@@ -865,7 +865,11 @@
 * Create a PR for the changes.
   ![plot](/images/Screenshot%20from%202024-04-22%2016-44-58.png)
 
-* Checkout the main branch
+## Bundle 4
+
+### Exercise 1
+
+- Checkout the main branch
 
   ```
   😹 🍒 :git-exercises ivy$ git switch main
@@ -873,7 +877,7 @@
   Your branch is up to date with 'origin/main'.
   ```
 
-* - Create a new repository on github
+- - Create a new repository on github
   - Using git remote add the repo to your project as second remote named `git-copy`
 
   ```
@@ -885,7 +889,7 @@
   origin	git@github.com:IvyMurage/git-exercises.git (push)
   ```
 
-* Make a new changes on the home page
+- Make a new changes on the home page
 
   ```
   😹 🍒 :git-exercises ivy$ git status
@@ -900,7 +904,7 @@
   no changes added to commit (use "git add" and/or "git commit -a")
   ```
 
-* Commit the changes
+- Commit the changes
 
   ```
   😹 🍒 :git-exercises ivy$ git add .
@@ -920,7 +924,7 @@
   Branch 'main' set up to track remote branch 'main' from 'origin'.
   ```
 
-* Push the changes to the both remotes. the origin and git-copy
+- Push the changes to the both remotes. the origin and git-copy
 
   ```
       😹 🍒 :git-exercises ivy$ git push -u origin main
@@ -945,4 +949,138 @@
       To github.com:IvyMurage/git-exercise-copy.git
       * [new branch]      main -> main
       Branch 'main' set up to track remote branch 'main' from 'git-copy'.
+  ```
+
+### Exercise 2
+
+- Checkout a new branch named ft/footer
+
+```
+😹 🍒 :git-exercises ivy$ git switch -c ft/footer
+Switched to a new branch 'ft/footer'
+```
+
+- Add some changes to the branch and commit them
+
+  ```
+      Switched to a new branch 'ft/footer'
+      😹 🍒 :git-exercises ivy$ touch footer.html
+      😹 🍒 :git-exercises ivy$ git add .
+      😹 🍒 :git-exercises ivy$ git commit -m 'Create footer'
+      [ft/footer c8d7a8e] Create footer
+      1 file changed, 16 insertions(+)
+      create mode 100644 footer.html
+      😹 🍒 :git-exercises ivy$ git status
+      On branch ft/footer
+      Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git restore <file>..." to discard changes in working directory)
+          modified:   footer.html
+
+      no changes added to commit (use "git add" and/or "git commit -a")
+
+
+  ```
+
+* Add more changes again to the branch and create a second commit
+
+  ````
+        😹 🍒 :git-exercises ivy$ git add .
+    😹 🍒 :git-exercises ivy$ git commit -m 'Add terms and conditions'
+    [ft/footer 9397c01] Add terms and conditions
+    1 file changed, 1 insertion(+)
+    ```
+  ````
+
+* Push and create a new PR for the branch
+
+  ```
+  😹 🍒 :git-exercises ivy$ git push --set-upstream origin ft/footer
+  Enumerating objects: 7, done.
+  Counting objects: 100% (7/7), done.
+  Delta compression using up to 8 threads
+  Compressing objects: 100% (6/6), done.
+  Writing objects: 100% (6/6), 740 bytes | 370.00 KiB/s, done.
+  Total 6 (delta 3), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (3/3), completed with 1 local object.
+  remote:
+  remote: Create a pull request for 'ft/footer' on GitHub by visiting:
+  remote: https://github.com/IvyMurage/git-exercises/pull/new/ft/footer
+  remote:
+  To github.com:IvyMurage/git-exercises.git
+    [new branch] ft/footer -> ft/footer
+  Branch 'ft/footer' set up to track remote branch 'ft/footer' from 'origin'.
+  ```
+
+* Checkout the main branch again
+  ```
+  😹 🍒 :git-exercises ivy$ git switch main
+  Switched to branch 'main'
+  Your branch is up to date with 'git-copy/main'.
+  ```
+* From there create a new branch named ft/squashing
+
+  ```
+  😹 🍒 :git-exercises ivy$ git switch -c ft/squashing
+  Switched to a new branch 'ft/squashing'
+  😹 🍒 :git-exercises ivy$ git branch
+  dev
+  ft/bundle-2
+  ft/contact-page
+  ft/faq-page
+  ft/footer
+  ft/home-page-redesign
+  ft/service-redesign
+  * ft/squashing
+  ft/team-page
+  main
+  ```
+
+* Using git merge squash, squash the changes on the ft/footer branch
+  ```
+  😹 🍒 :git-exercises ivy$ git merge --squash ft/footer
+  Updating 51b1756..9397c01
+  Fast-forward
+  Squash commit -- not updating HEAD
+  footer.html | 17 +++++++++++++++++
+  1 file changed, 17 insertions(+)
+  create mode 100644 footer.html
+  ```
+* Commit the changes with a different commit message such as footer changes squashing
+
+  ```
+  😹 🍒 :git-exercises ivy$ git status
+  On branch ft/squashing
+  Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+  new file: footer.html
+
+  😹 🍒 :git-exercises ivy$ git add .
+  😹 🍒 :git-exercises ivy$ git commit -m 'footer changes squashing'
+  [ft/squashing 6f86101] footer changes squashing
+  1 file changed, 17 insertions(+)
+  create mode 100644 footer.html
+  😹 🍒 :git-exercises ivy$ git push
+  fatal: The current branch ft/squashing has no upstream branch.
+  To push the current branch and set the remote as upstream, use
+  git push --set-upstream origin ft/squashing
+  ```
+
+* Push the changes and create a PR
+  ```
+  😹 🍒 :git-exercises ivy$ git push --set-upstream origin ft/squashing
+  Enumerating objects: 4, done.
+  Counting objects: 100% (4/4), done.
+  Delta compression using up to 8 threads
+  Compressing objects: 100% (3/3), done.
+  Writing objects: 100% (3/3), 489 bytes | 489.00 KiB/s, done.
+  Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+  remote:
+  remote: Create a pull request for 'ft/squashing' on GitHub by visiting:
+  remote:      https://github.com/IvyMurage/git-exercises/pull/new/ft/squashing
+  remote:
+  To github.com:IvyMurage/git-exercises.git
+  * [new branch]      ft/squashing -> ft/squashing
+  Branch 'ft/squashing' set up to track remote branch 'ft/squashing' from 'origin'.
   ```
