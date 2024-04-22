@@ -103,3 +103,144 @@
   * dev
   main
   ```
+
+
+### Exercise 2
+* Question 1:
+    
+    * Create a new home.html file, add some html changes and save them
+    ```
+    😹 🍒 :git-exercises ivy$ touch home.html
+    😹 🍒 :git-exercises ivy$ git status
+    On branch dev
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+        home.html
+
+    nothing added to commit but untracked files present (use "git add" to track)
+    ```
+
+    * Stash save your current changes
+    ```
+    😹 🍒 :git-exercises ivy$ git add .
+    😹 🍒 :git-exercises ivy$ git status
+    On branch dev
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+        new file:   home.html
+
+    😹 🍒 :git-exercises ivy$ git stash
+    Saved working directory and index state WIP on dev: cf80077 Add index file
+    😹 🍒 :git-exercises ivy$ git status
+    On branch dev
+    nothing to commit, working tree clean
+    😹 🍒 :git-exercises ivy$ git stash list
+    stash@{0}: WIP on dev: cf80077 Add index file
+    ```
+
+    * Repeat the same process for a new about page and stash save your changes
+    ```
+    😹 🍒 :git-exercises ivy$ touch about.html
+    😹 🍒 :git-exercises ivy$ git status
+    On branch dev
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+        about.html
+
+    nothing added to commit but untracked files present (use "git add" to track)
+    😹 🍒 :git-exercises ivy$ git add .
+    😹 🍒 :git-exercises ivy$ git stash save ' this is the about page'
+    Saved working directory and index state On dev:  this is the about page
+    😹 🍒 :git-exercises ivy$ git stash list
+    stash@{0}: On dev: this is the about page
+    stash@{1}: WIP on dev: cf80077 Add index file
+    ```
+
+    * Repeat the same process for a new team page and stash save your changes
+    ```
+    😹 🍒 :git-exercises ivy$ touch team.html
+    😹 🍒 :git-exercises ivy$ git status
+    On branch dev
+    Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+        team.html
+
+    nothing added to commit but untracked files present (use "git add" to track)
+    😹 🍒 :git-exercises ivy$ git add .
+    😹 🍒 :git-exercises ivy$ git stash save 'this is the team page'
+    Saved working directory and index state On dev: this is the team page
+    😹 🍒 :git-exercises ivy$ git stash list
+    stash@{0}: On dev: this is the team page
+    stash@{1}: On dev: this is the about page
+    stash@{2}: WIP on dev: cf80077 Add index file
+    ```
+
+    * Using stash pop restore the changes of the about page
+    ```
+    😹 🍒 :git-exercises ivy$ git stash pop stash@{1} 
+    On branch dev
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+        new file:   about.html
+
+    Dropped stash@{1} (d6da42affab2d0ed4fa1228718de644f445ff59c)
+    😹 🍒 :git-exercises ivy$ git stash list
+    stash@{0}: On dev: this is the team page
+    stash@{1}: WIP on dev: cf80077 Add index file
+    ```
+    * With the help of an index use stash pop bring back the home page changes
+    ```
+    😹 🍒 :git-exercises ivy$ git stash pop 1
+    On branch dev
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+        new file:   about.html
+        new file:   home.html
+
+    Dropped refs/stash@{1} (f45c6f3ab707a41843045e3ebec1f49c2313c84c)
+    ```
+    
+    * Commit the current changes and push them
+    ```
+    git commit -m 'Add home and about page'
+    [dev 206df2b] Add home and about page
+    2 files changed, 25 insertions(+)
+    create mode 100644 about.html
+    create mode 100644 home.html
+    ```
+
+    * Using stash pop restore the changes of the team page index
+    ```
+    😹 🍒 :git-exercises ivy$ git stash list
+    stash@{0}: On dev: this is the team page
+    😹 🍒 :git-exercises ivy$ git stash apply 
+    On branch dev
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+        new file:   team.html
+
+    😹 🍒 :git-exercises ivy$ git stash list
+    stash@{0}: On dev: this is the team page
+    😹 🍒 :git-exercises ivy$ git stash pop
+    On branch dev
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+        new file:   team.html
+
+    Dropped refs/stash@{0} (217b6e079ebec4486d4d7bdf6e01b0ac6f6d41ce)
+    😹 🍒 :git-exercises ivy$ git stash list
+    ```
+    * Reset the current changes using git reset and go back to the changes without the team page
+    ```
+    😹 🍒 :git-exercises ivy$ git status
+    On branch dev
+    Changes to be committed:
+    (use "git restore --staged <file>..." to unstage)
+        new file:   team.html
+
+    😹 🍒 :git-exercises ivy$ git reset --hard
+    HEAD is now at 206df2b Add home and about page
+    😹 🍒 :git-exercises ivy$ git status
+    On branch dev
+    nothing to commit, working tree clean
+    ```
